@@ -15,7 +15,7 @@ $(function () {
                     s_no.addClass('hidden');
                     s_data.removeClass('hidden');
                     s_data.html('');
-                    counter.hmtl(' (' + data.length + ')');
+                    counter.html(' (' + data.length + ')');
 
                     for (var t in data) if (data.hasOwnProperty(t)) {
                         s_data.append('<p><a href="#" class="l' + t + '">' + data[t]['name'] + '</a></p>');
