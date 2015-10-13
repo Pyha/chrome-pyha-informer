@@ -8,24 +8,64 @@
             }
             p {
                 margin-bottom: 7px;
-                font-family: 'Trebuchet MS', Arial, sans-serif;
+                font-family: 'Open Sans','Trebuchet MS', Arial, sans-serif;
                 font-size: 13px;
             }
             a {
                 color: #465692;
             }
+            #data, #header {
+                min-width: 300px;
+            }
+            #header table {
+                width:100%;
+            }
+            #header td {
+                width:50%;
+                vertical-align:middle;
+                text-align:left;
+            }
+            #header td + td {
+                text-align:right;
+            }
+            #header {
+                text-align:center;
+                margin-bottom:10px;
+                border-bottom:1px solid #eee;
+            }
+            #header p {
+                margin:5px 0 10px 0;
+                font-size:.9em;
+            }
+            #header p a, #no p {
+                color:#666;
+            }
             #data {
-                min-width: 400px;
+                border:1px solid #eee;
+                border-radius:3px;
+            }
+            #data p {
+                margin:0;
+                padding:5px;
+            }
+            #data p:nth-child(2n) {
+                background:#efefef;
             }
         </style>
         <script src="../../js/jquery/jquery.min.js"></script>
         <script src="browser_action.js"></script>
     </head>
     <body>
-        <div id="no"><p>Нет новых сообщений</p></div>
-        <div id="data">
-
+        <div id="header">
+            <table>
+                <tr>
+                    <td><a href="http://pyha.ru"><img src="http://epsyl.ru/i/e/8/d/e8d2c918cb165570869fd69d005af3f1.png"></a></td>
+                    <td><a href="http://pyha.ru/forum/new/">Непрочитанные<span id="items-new"></span></a></td>
+                </tr>
+            </table>
         </div>
+        <div id="no"><p><em>Нет новых сообщений</em></p></div>
+        <div id="data"></div>
     </body>
 </html>
 
