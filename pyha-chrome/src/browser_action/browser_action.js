@@ -30,4 +30,10 @@ $(function () {
             }
         }
     );
+
+    $('#header a').click(function(e) {
+        chrome.tabs.create({
+            url: $(this).attr('href')
+        });
+    });
 })();
