@@ -1,12 +1,13 @@
 $(function () {
     chrome.runtime.sendMessage({action: 'pyha_unread'}, function (data) {
         var s_data = $('#data');
+        var s_mark = $('#mark-read');
         var s_no = $('#no');
         var counter = $('#items-new');
         if (!data['count']) {
             counter.html('');
             s_no.removeClass('hidden');
-            s_data.addClass('hidden');
+            $(s_data,s_mark).addClass('hidden');
         } else {
             counter.html(' (' + data['count'] + ')');
             var html = '';
@@ -16,7 +17,7 @@ $(function () {
             }
             s_data.html(html);
             s_no.addClass('hidden');
-            s_data.removeClass('hidden');
+            $(s_data,s_mark).removeClass('hidden');
         }
     });
 

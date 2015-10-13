@@ -65,3 +65,6 @@ a {
 #header a, #data a {
     outline: none;
 }
+#mark-read {
+    text-align:center;
+}
