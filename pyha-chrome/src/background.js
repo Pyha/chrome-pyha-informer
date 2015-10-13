@@ -90,9 +90,7 @@
     }
 
     function update() {
-        setInterval(function () {
-            core();
-        }, 1000 * frequency);
+        setInterval(core, 1000 * frequency);
     }
 
     chrome.notifications.onClicked.addListener(function (id) {
