@@ -45,6 +45,7 @@
                 r['count'] = +r['count'];
                 var topics = {};
                 for (var i in r['topics']) if (r['topics'].hasOwnProperty(i)) {
+                    r['topics'][i]['url'] = 'http://pyha.ru' + r['topics'][i]['url'];
                     topics['id' + i] = r['topics'][i];
                 }
                 r['topics'] = topics;
@@ -114,6 +115,15 @@
                 if (request.id) {
                     delete answer['topics'][request.id];
                     set_badge(--answer['count']);
+                }
+                break;
+            case 'pyha_open_all':
+                for (var t in answer['topics']) if (answer['topics'].hasOwnProperty(t)) {
+                    chrome.runtime.sendMessage({
+                        action: 'pyha_click',
+                        id: t,
+                        url: answer['topics'][t]['url']
+                    });
                 }
                 break;
         }
