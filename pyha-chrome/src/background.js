@@ -2,6 +2,7 @@
 
     if (!localStorage.is_init) {
         localStorage.is_init = true;
+        localStorage.is_test = 0;
         localStorage.is_notify = 1;
         localStorage.is_badge = 1;
         localStorage.frequency = 60;
@@ -36,11 +37,13 @@
                 return;
             }
             var r = JSON.parse(data);
-            /*r = {count: 3, topics: [
-                {url: '/#1', name: 'Топик 1'},
-                {url: '/#2', name: 'Топик 2'},
-                {url: '/#3', name: 'Топик 3'}
-            ]};*/
+            if (+localStorage.is_test) {
+                r = {count: 3, topics: [
+                    {url: '/#1', name: 'Топик 1'},
+                    {url: '/#2', name: 'Топик 2'},
+                    {url: '/#3', name: 'Топик 3'}
+                ]};
+            }
             if (r != null) {
                 r['count'] = +r['count'];
                 var topics = {};
