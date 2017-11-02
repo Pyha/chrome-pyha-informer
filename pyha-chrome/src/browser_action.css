@@ -49,8 +49,9 @@ a {
 }
 
 #data {
-    border: 1px solid #eee;
+    border: 1px solid #fcf7e8;
     border-radius: 3px;
+    margin-bottom:10px;
 }
 
 #data p {
@@ -59,7 +60,7 @@ a {
 }
 
 #data p:nth-child(2n) {
-    background: #efefef;
+    background: #fcf7e8;
 }
 
 #header a, #data a {
