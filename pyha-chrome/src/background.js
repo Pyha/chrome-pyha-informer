@@ -97,13 +97,7 @@
         setInterval(core, 1000 * frequency);
     }
 
-    chrome.notifications.onClicked.addListener(function (id) {
-        if (id == notification_id) {
-            chrome.tabs.create({url: url_unread});
-            chrome.notifications.clear(id, function (id) {});
-        }
-    });
-    chrome.runtime.onMessage.addListener(function (request, sender, callback) {
+    function on_message(request, sender, callback) {
         switch (request.action) {
             case 'pyha_unread':
                 callback(answer);
@@ -122,7 +116,7 @@
                 break;
             case 'pyha_open_all':
                 for (var t in answer['topics']) if (answer['topics'].hasOwnProperty(t)) {
-                    chrome.runtime.sendMessage({
+                    on_message({
                         action: 'pyha_click',
                         id: t,
                         url: answer['topics'][t]['url']
@@ -130,7 +124,15 @@
                 }
                 break;
         }
+    }
+
+    chrome.notifications.onClicked.addListener(function (id) {
+        if (id == notification_id) {
+            chrome.tabs.create({url: url_unread});
+            chrome.notifications.clear(id, function (id) {});
+        }
     });
+    chrome.runtime.onMessage.addListener(on_message);
 
     core();
     update();

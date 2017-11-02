@@ -2,7 +2,7 @@
     display: none;
 }
 
-p {
+p, a {
     margin-bottom: 7px;
     font-family: 'Open Sans', 'Trebuchet MS', Arial, sans-serif;
     font-size: 13px;
